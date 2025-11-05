@@ -1,0 +1,311 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* BTG Pactual Light Mode - Following Brand Guide */
+    --background: 0 0% 100%;
+    --foreground: 219 79% 9%;
+    
+    --card: 0 0% 98%;
+    --card-foreground: 219 79% 9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 219 79% 9%;
+    
+    /* BTG Brand Blue #195AB4 */
+    --primary: 215 76% 40%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 217 80% 31%;
+    
+    --secondary: 215 100% 91%;
+    --secondary-foreground: 219 79% 9%;
+    
+    --muted: 215 100% 95%;
+    --muted-foreground: 218 30% 40%;
+    
+    --accent: 215 100% 85%;
+    --accent-foreground: 219 79% 9%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 215 30% 88%;
+    --input: 215 30% 92%;
+    --ring: 215 76% 40%;
+    
+    --radius: 0.75rem;
+    
+    /* Status Colors - Optimized for Light Mode */
+    --status-ok: 152 69% 31%;
+    --status-ok-bg: 152 69% 95%;
+    --status-warn: 38 92% 50%;
+    --status-warn-bg: 38 92% 95%;
+    --status-error: 0 72% 51%;
+    --status-error-bg: 0 72% 95%;
+    --status-info: 215 76% 40%;
+    --status-info-bg: 215 76% 95%;
+    --status-maint: 189 84% 40%;
+    --status-maint-bg: 189 84% 95%;
+    
+    /* BTG Brand Colors from Guide */
+    --btg-darkest: 219 79% 9%;
+    --btg-darker: 218 78% 20%;
+    --btg-dark: 217 80% 31%;
+    --btg-primary: 215 76% 40%;
+    --btg-medium: 215 73% 53%;
+    --btg-light: 215 100% 67%;
+    --btg-lighter: 215 100% 76%;
+    --btg-lightest: 215 100% 91%;
+    
+    /* Glassmorphism */
+    --glass: 0 0% 100%;
+    --glass-border: 215 30% 85%;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px hsl(219 79% 9% / 0.05);
+    --shadow-md: 0 4px 6px hsl(219 79% 9% / 0.08);
+    --shadow-lg: 0 10px 20px hsl(219 79% 9% / 0.12);
+    --shadow-xl: 0 20px 40px hsl(219 79% 9% / 0.15);
+    --shadow-glow: 0 0 30px hsl(215 76% 40% / 0.2);
+    
+    /* Transitions */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* BTG Pactual Dark Mode - Following Brand Guide */
+    --background: 219 79% 9%;
+    --foreground: 215 100% 91%;
+    
+    --card: 218 78% 12%;
+    --card-foreground: 215 100% 91%;
+    
+    --popover: 218 78% 12%;
+    --popover-foreground: 215 100% 91%;
+    
+    /* BTG Brand Blue - Lighter for dark mode */
+    --primary: 215 100% 67%;
+    --primary-foreground: 219 79% 9%;
+    --primary-hover: 215 73% 53%;
+    
+    --secondary: 218 78% 20%;
+    --secondary-foreground: 215 100% 91%;
+    
+    --muted: 217 80% 18%;
+    --muted-foreground: 215 30% 65%;
+    
+    --accent: 217 80% 25%;
+    --accent-foreground: 215 100% 91%;
+    
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 215 100% 91%;
+    
+    --border: 217 80% 25%;
+    --input: 217 80% 20%;
+    --ring: 215 100% 67%;
+    
+    /* Status Colors - Dark Mode */
+    --status-ok: 152 69% 45%;
+    --status-ok-bg: 152 69% 15%;
+    --status-warn: 38 92% 58%;
+    --status-warn-bg: 38 92% 15%;
+    --status-error: 0 72% 58%;
+    --status-error-bg: 0 72% 15%;
+    --status-info: 215 100% 67%;
+    --status-info-bg: 215 100% 15%;
+    --status-maint: 189 84% 50%;
+    --status-maint-bg: 189 84% 15%;
+    
+    /* Glassmorphism - Dark */
+    --glass: 218 78% 12%;
+    --glass-border: 217 80% 25%;
+    
+    /* Shadows - Dark */
+    --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 6px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 10px 20px hsl(0 0% 0% / 0.5);
+    --shadow-xl: 0 20px 40px hsl(0 0% 0% / 0.6);
+    --shadow-glow: 0 0 40px hsl(215 100% 67% / 0.3);
+  }
+  
+  /* Colorblind Mode */
+  .colorblind {
+    --status-ok: 174 62% 47%;
+    --status-warn: 40 74% 65%;
+    --status-error: 14 78% 62%;
+    --status-info: 199 61% 49%;
+    --status-maint: 270 58% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+  
+  /* Animated Background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: -20%;
+    pointer-events: none;
+    z-index: -2;
+    background: radial-gradient(40% 30% at 20% 10%, hsl(var(--primary) / 0.08), transparent 60%),
+                radial-gradient(30% 25% at 80% 15%, hsl(var(--primary) / 0.06), transparent 60%),
+                radial-gradient(25% 20% at 50% 90%, hsl(var(--primary) / 0.04), transparent 60%);
+    animation: aurora 30s ease-in-out infinite alternate;
+  }
+  
+  .dark body::before {
+    background: radial-gradient(40% 30% at 20% 10%, hsl(var(--primary) / 0.14), transparent 60%),
+                radial-gradient(30% 25% at 80% 15%, hsl(var(--primary) / 0.12), transparent 60%),
+                radial-gradient(25% 20% at 50% 90%, hsl(var(--primary) / 0.10), transparent 60%);
+  }
+  
+  @keyframes aurora {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(-2%, 1.5%, 0) scale(1.04); }
+    100% { transform: translate3d(2%, -2%, 0) scale(1.02); }
+  }
+  
+  /* Noise Texture */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" opacity=".03"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>');
+    opacity: 0.5;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    body::before {
+      animation: none !important;
+    }
+  }
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Professional Cards & Status Components */
+@layer components {
+  .glass-card {
+    background-color: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+  }
+  
+  .glass-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .glass-card-lg {
+    background-color: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    padding: 1.5rem;
+  }
+
+  .ticker-wrapper {
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+
+  .ticker-content {
+    display: flex;
+    gap: 1rem;
+    animation: ticker 60s linear infinite;
+    width: max-content;
+  }
+
+  .ticker-content:hover {
+    animation-play-state: paused;
+  }
+
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .status-pill-ok {
+    background-color: hsl(var(--status-ok-bg));
+    color: hsl(var(--status-ok));
+  }
+
+  .status-pill-warn {
+    background-color: hsl(var(--status-warn-bg));
+    color: hsl(var(--status-warn));
+  }
+
+  .status-pill-error {
+    background-color: hsl(var(--status-error-bg));
+    color: hsl(var(--status-error));
+  }
+
+  .status-pill-info {
+    background-color: hsl(var(--status-info-bg));
+    color: hsl(var(--status-info));
+  }
+
+  .status-pill-maint {
+    background-color: hsl(var(--status-maint-bg));
+    color: hsl(var(--status-maint));
+  }
+}
+
+/* Status Dots */
+@layer utilities {
+  .status-dot {
+    @apply w-2 h-2 rounded-full inline-block;
+  }
+  
+  .status-dot-ok {
+    @apply bg-[hsl(var(--status-ok))];
+    box-shadow: 0 0 8px hsl(var(--status-ok) / 0.5);
+  }
+  
+  .status-dot-warn {
+    @apply bg-[hsl(var(--status-warn))];
+    box-shadow: 0 0 8px hsl(var(--status-warn) / 0.5);
+  }
+  
+  .status-dot-error {
+    @apply bg-[hsl(var(--status-error))];
+    box-shadow: 0 0 8px hsl(var(--status-error) / 0.5);
+  }
+  
+  .status-dot-info {
+    @apply bg-[hsl(var(--status-info))];
+    box-shadow: 0 0 8px hsl(var(--status-info) / 0.5);
+  }
+  
+  .status-dot-maint {
+    @apply bg-[hsl(var(--status-maint))];
+    box-shadow: 0 0 8px hsl(var(--status-maint) / 0.5);
+  }
+}
